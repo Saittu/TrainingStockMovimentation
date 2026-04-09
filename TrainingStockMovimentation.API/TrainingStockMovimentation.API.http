@@ -1,0 +1,6 @@
+@TrainingStockMovimentation.API_HostAddress = http://localhost:5262
+
+GET {{TrainingStockMovimentation.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
