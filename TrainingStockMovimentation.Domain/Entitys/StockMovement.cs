@@ -14,6 +14,14 @@ namespace TrainingStockMovimentation.Domain.Entitys
 
         public DateTime Date { get; set; }
 
+        public decimal? ValueMovimentation { get; set; }
+
+        public int? QuantityProduct { get; set; }
+
+        public long ContaId { get; set; }
+
         public Products Product { get; set; }
+
+        public ContaBC ContaBC { get; set; }
     }
 }

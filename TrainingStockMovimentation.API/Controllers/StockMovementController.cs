@@ -22,20 +22,20 @@ namespace TrainingStockMovimentation.API.Controllers
             return Ok(response);
         }
 
+        [HttpGet("{id}")]
+        public ActionResult GetStockMovement(long id)
+        {
+            var response = _service.GetStockMovement(id);
+
+            return Ok(response);
+        }
+
         [HttpPost("{productId}")]
         public ActionResult<CreateStockMovementDto> CreateStockMovement([FromRoute]long productId, [FromBody]CreateStockMovementDto dto)
         {
             _service.CreateStockMovemnt(productId, dto);
 
             return Created();
-        }
-
-        [HttpPatch("{id}")]
-        public ActionResult<CreateStockMovementDto> UpdateStockMovement([FromRoute]long id, [FromBody]CreateStockMovementDto dto)
-        {
-            _service.UpdateStockMovemnt(id, dto);
-
-            return NoContent();
         }
 
         [HttpDelete("{id}")]

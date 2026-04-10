@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using TrainingStockMovimentation.Domain.Entitys;
 
-namespace TrainingStockMovimentation.Infra.Mappings
+namespace TrainingStockMovimentation.Infra.Database.Mappings
 {
     public class SupplierMap : IEntityTypeConfiguration<Supplier>
     {

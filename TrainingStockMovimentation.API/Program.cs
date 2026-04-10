@@ -36,6 +36,7 @@ builder.Services.AddValidatorsFromAssembly(typeof(SupplierValidator).Assembly);
 builder.Services.AddScoped<ISupplierService, SupplierServices>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IStockMovementService, StockMovementService>();
+builder.Services.AddScoped<IContaBCService, ContaBCService>();
 
 #endregion
 
@@ -44,6 +45,7 @@ builder.Services.AddScoped<IStockMovementService, StockMovementService>();
 builder.Services.AddScoped<ISupplierRepository, SupplierRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IStockMovementRepository, StockMovementRepository>();
+builder.Services.AddScoped<IContaBCRepository, ContaBCRepository>();
 
 #endregion
 

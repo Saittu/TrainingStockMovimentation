@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using TrainingStockMovimentation.Domain.Entitys;
 
-namespace TrainingStockMovimentation.Infra.Mappings
+namespace TrainingStockMovimentation.Infra.Database.Mappings
 {
     public class StockMovementMap : IEntityTypeConfiguration<StockMovement>
     {
@@ -18,12 +18,23 @@ namespace TrainingStockMovimentation.Infra.Mappings
             builder.Property(x => x.Date)
                 .IsRequired();
 
+            builder.Property(x => x.ValueMovimentation);
+
+            builder.Property(x => x.QuantityProduct);
+
             builder.HasOne(x => x.Product)
                 .WithMany(x => x.stockMovements)
                 .HasForeignKey(x => x.ProductId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK_Products");
+
+            builder.HasOne(x => x.ContaBC)
+                .WithMany(x => x.StockMovement)
+                .HasForeignKey(x => x.ContaId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_StockMovement_ContaBC");
         }
     }
 }

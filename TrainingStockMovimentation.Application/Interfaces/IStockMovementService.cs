@@ -8,9 +8,8 @@ namespace TrainingStockMovimentation.Application.Interfaces
 
         void CreateStockMovemnt(long prodcutId, CreateStockMovementDto dto);
 
-        void UpdateStockMovemnt(long id, CreateStockMovementDto dto);
-
         void DeleteStockMovement(long id);
 
+        StockMovementDto GetStockMovement(long id);
     }
 }

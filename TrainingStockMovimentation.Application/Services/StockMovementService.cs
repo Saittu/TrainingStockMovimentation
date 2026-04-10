@@ -25,7 +25,10 @@ namespace TrainingStockMovimentation.Application.Services
             {
                 ProductId = prodcutId,
                 Type = dto.MovimentType,
-                Date = dto.Created_At
+                Date = dto.Created_At,
+                ValueMovimentation = 0,
+                QuantityProduct = dto.QuantityProduct,
+                ContaId = dto.ContaId,
             };
 
             _repository.CreateStockMovement(entity);
@@ -36,6 +39,27 @@ namespace TrainingStockMovimentation.Application.Services
             _repository.DeleteStockMovement(id);
         }
 
+        public StockMovementDto GetStockMovement(long id)
+        {
+            var view = _repository.GetStockMovementView(id);
+
+            return new StockMovementDto
+            {
+                Id = view.Id,
+                EntradaOuSaidaValor = view.EntradaOuSaidaValor,
+                DataMovimentacao = view.DataMovimentacao,
+                ValueMovimentation = view.ValueMovimentation,
+                QuantidadeMovimentadaProduto = view.QuantidadeMovimentadaProduto,
+                NomeProduto = view.NomeProduto,
+                Description = view.Description,
+                TipoProduto = view.TipoProduto,
+                QuantidadeRestanteEmEstoque = view.QuantidadeRestanteEmEstoque,
+                NomeConta = view.NomeConta,
+                NumeroConta = view.NumeroConta,
+                SaldoRestante = view.SaldoRestante
+            };
+        }
+
         public List<StockMovementGridDto> GetStockMovementGrids()
         {
             var entity = _repository.GetStockMovementList();
@@ -43,17 +67,10 @@ namespace TrainingStockMovimentation.Application.Services
             return entity.Select(x => new StockMovementGridDto
             {
                 MovimentType = x.Type,
-                Created_At = x.Date
+                Created_At = x.Date,
+                ValueMovimentation = x.ValueMovimentation,
+                QuantityProduct = x.QuantityProduct
             }).ToList();
-        }
-
-        public void UpdateStockMovemnt(long id, CreateStockMovementDto dto)
-        {
-            _validator.Validate(dto);
-
-            var entity = new StockMovement { Type = dto.MovimentType };
-
-            _repository.UpdateStockMovement(id, entity);
         }
     }
 }

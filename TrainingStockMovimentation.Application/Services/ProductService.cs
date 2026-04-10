@@ -10,13 +10,13 @@ namespace TrainingStockMovimentation.Application.Services
     {
         private readonly IProductRepository _repository;
         private readonly IValidator<ProductsDto> _validator;
-        private readonly IValidator<long> _validatorVinculos;
+        //private readonly IValidator<long> _validatorVinculos;
 
-        public ProductService(IProductRepository repository, IValidator<ProductsDto> validator, IValidator<long> validatorVinculos)
+        public ProductService(IProductRepository repository, IValidator<ProductsDto> validator)
         {
             _repository = repository;
             _validator = validator;
-            _validatorVinculos = validatorVinculos;
+            //_validatorVinculos = validatorVinculos;
         }
 
         public void CreateProdcuts(long supplierId, ProductsDto products)
@@ -39,7 +39,7 @@ namespace TrainingStockMovimentation.Application.Services
 
         public void DeleteProduct(long id)
         {
-            _validatorVinculos.Validate(id);
+            //_validatorVinculos.Validate(id);
 
             _repository.DeleteProduct(id);
         }

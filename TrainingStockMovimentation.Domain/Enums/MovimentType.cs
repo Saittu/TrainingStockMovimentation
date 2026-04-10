@@ -1,8 +1,13 @@
-﻿namespace TrainingStockMovimentation.Domain.Enums
+﻿using System.ComponentModel;
+
+namespace TrainingStockMovimentation.Domain.Enums
 {
     public enum MovimentType
     {
-        Saida = 1,
-        Entrada = 2
+        [Description("Entrada")]
+        Entrada = 1,
+
+        [Description("Saida")]
+        Saida = 2
     }
 }

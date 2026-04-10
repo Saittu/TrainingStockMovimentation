@@ -22,7 +22,7 @@ namespace TrainingStockMovimentation.API.Controllers
             return Ok(response);
         }
 
-        [HttpPost("create-post/{supplierId}")]
+        [HttpPost("create-product/{supplierId}")]
         public ActionResult<ProductsDto> CreateProduct([FromRoute]long supplierId, [FromBody]ProductsDto products)
         {
             _service.CreateProdcuts(supplierId, products);

@@ -13,6 +13,10 @@ namespace TrainingStockMovimentation.Infra.Database.Context
 
         public DbSet<StockMovement> StockMovement { get; set; }
 
+        public DbSet<ContaBC> ContaBC { get; set; }
+
+        public DbSet<StockMovementView> StockMovementViews { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
